@@ -1,0 +1,42 @@
+<?php
+
+namespace App\Http\Requests\User;
+
+use Illuminate\Contracts\Validation\ValidationRule;
+use Illuminate\Foundation\Http\FormRequest;
+
+class StorePostRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     */
+    public function authorize(): bool
+    {
+        return auth()->check();
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array<string, ValidationRule|array<mixed>|string>
+     */
+    public function rules(): array
+    {
+        return [
+            'title' => ['required', 'string', 'min:3', 'max:255'],
+            'content' => ['required', 'string'],
+            'image' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+        ];
+    }
+
+    public function messages(): array
+    {
+        return [
+            'title.required' => 'Title required',
+            'title.min' => 'Title must not be less than 3 characters',
+            'content.required' => 'Content required',
+            'image.image' => 'The file must be an image',
+            'image.max' => 'Image must not be greater than 2MB',
+        ];
+    }
+}
