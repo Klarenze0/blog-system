@@ -2,8 +2,7 @@ export type * from './auth';
 export type * from './navigation';
 export type * from './ui';
 
-
-export interface AuthUser{
+export interface AuthUser {
     id: number;
     name: string;
     email: string;
@@ -27,6 +26,7 @@ export interface PageProps {
     };
     flash?: {
         success?: string;
-        erro?: string;
+        error?: string;
     };
+    [key: string]: any,
 }

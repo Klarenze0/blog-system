@@ -16,12 +16,12 @@ Route::get('/post/{post}', [FeedController::class, 'show'])->name('feed.show');
 //auth routes - need nakalogin
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/dashboard', function() {
-        return match(auth()->user()->role->value) {
+    Route::get('/dashboard', function () {
+        return match (auth()->user()->role->value) {
             'admin' => redirect('/admin/posts'),
             'default' => redirect('/posts'),
         };
-    })->name('dashbord');
+    })->name('dashboard');
 
     // user posts - sariling posts
     Route::prefix('posts')->name('posts.')->group(function () {
@@ -42,8 +42,6 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
         Route::prefix('posts')->name('posts.')->group(function () {
             Route::get('/', [AdminPostController::class, 'index'])->name('index');
-            Route::get('/{post}/post', [AdminPostController::class, 'edit'])->name('edit');
-            Route::post('/{post}', [AdminPostController::class, 'update'])->name('update');
             Route::delete('/{post}', [AdminPostController::class, 'delete'])->name('delete');
         });
 
@@ -56,4 +54,4 @@ Route::middleware(['auth', 'role:admin'])
 
 
 
-require __DIR__.'/settings.php';
+require __DIR__ . '/settings.php';
