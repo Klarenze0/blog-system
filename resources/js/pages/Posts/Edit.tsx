@@ -52,7 +52,7 @@ export default function PostEdit({ post }: Props) {
                         <Label htmlFor="title" className="text-sm font-medium text-zinc-700">Title</Label>
                         <Input id="title" value={data.title}
                             onChange={e => setData('title', e.target.value)}
-                            className="border-zinc-200" />
+                            className="border-zinc-200 text-black" />
                         {errors.title && <p className="text-xs text-red-500">{errors.title}</p>}
                     </div>
 
@@ -60,7 +60,7 @@ export default function PostEdit({ post }: Props) {
                         <Label htmlFor="content" className="text-sm font-medium text-zinc-700">Content</Label>
                         <Textarea id="content" value={data.content}
                             onChange={e => setData('content', e.target.value)}
-                            rows={8} className="border-zinc-200 resize-none" />
+                            rows={8} className="border-zinc-200 resize-none text-black" />
                         {errors.content && <p className="text-xs text-red-500">{errors.content}</p>}
                     </div>
 
@@ -103,3 +103,4 @@ export default function PostEdit({ post }: Props) {
         </AppLayout>
     );
 }
+

@@ -56,9 +56,8 @@ class PostController extends Controller
 
         $this->postService->update($post, $request->validated());
 
-        return redirect()
-            ->route('posts.index')
-            ->route('success', 'Post updated successfully.');
+        return to_route('posts.index')
+            ->with('success', 'Post updated successfully.');
     }
 
     // delete post
@@ -73,3 +72,5 @@ class PostController extends Controller
     }
 
 }
+
+

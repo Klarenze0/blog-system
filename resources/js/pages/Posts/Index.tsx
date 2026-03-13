@@ -78,7 +78,7 @@ export default function PostsIndex({ posts }: Props) {
                             <div className="flex items-center gap-1.5 shrink-0">
                                 <Link href={`/posts/${post.id}/edit`}>
                                     <Button size="sm" variant="outline"
-                                        className="h-7 text-[11px] gap-1">
+                                        className="h-7 text-[11px] gap-1 text-black">
                                         <Pencil size={10} />
                                         Edit
                                     </Button>
