@@ -29,7 +29,7 @@ class PostController extends Controller
 
     // pakita yung form pag gagawa ng bagong post
     public function create(): Response {
-        return Inertia::render('Posts/create');
+        return Inertia::render('Posts/Create');
     }
 
     // isave sa db yung post 

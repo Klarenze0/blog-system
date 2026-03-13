@@ -20,14 +20,14 @@ export default function GuesLayout({children}: PropsWithChildren){
                         {auth.user ? (
                             <>
                                 <Link href="/posts">
-                                    <Button size="sm" variant="ghost" className='gap-1.5 text-xs'>
+                                    <Button size="sm" variant="ghost" className='gap-1.5 text-xs text-black'>
                                         <PenLine size={13}/>
                                         My Posts
                                     </Button>
                                 </Link>
                                 {auth.user.role === 'admin' && (
                                     <Link href="/admin/posts">
-                                        <Button size="sm" variant="outline" className='text-xs'>
+                                        <Button size="sm" variant="outline" className='text-xs text-black'>
                                             Admin
                                         </Button>
                                     </Link>

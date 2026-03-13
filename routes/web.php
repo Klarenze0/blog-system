@@ -19,7 +19,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return match (auth()->user()->role->value) {
             'admin' => redirect('/admin/posts'),
-            'default' => redirect('/posts'),
+            default => redirect('/posts'),
         };
     })->name('dashboard');
 
@@ -42,7 +42,7 @@ Route::middleware(['auth', 'role:admin'])
     ->group(function () {
         Route::prefix('posts')->name('posts.')->group(function () {
             Route::get('/', [AdminPostController::class, 'index'])->name('index');
-            Route::delete('/{post}', [AdminPostController::class, 'delete'])->name('delete');
+            Route::delete('/{post}', [AdminPostController::class, 'destroy'])->name('delete');
         });
 
         Route::prefix('users')->name('users.')->group(function () {

@@ -31,7 +31,7 @@ export default function PostsIndex({ posts }: Props) {
                     {posts.length} post{posts.length !== 1 ? 's' : ''}
                 </p>
                 <Link href="/posts/create">
-                    <Button size="sm" className="gap-1.5 text-xs bg-zinc-900 text-white hover:bg-zinc-700">
+                    <Button size="sm" className="gap-1.5 text-xs text-black hover:bg-zinc-700">
                         <Plus size={13} />
                         New Post
                     </Button>

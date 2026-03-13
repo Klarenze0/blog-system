@@ -22,7 +22,7 @@ export default function AppLayout({ children, title }: Props) {
 
                     <div className="flex items-center gap-2">
                         <Link href="/posts">
-                            <Button size="sm" variant="ghost" className="gap-1.5 text-xs">
+                            <Button size="sm" variant="ghost" className="gap-1.5 text-xs text-black">
                                 <LayoutDashboard size={13} />
                                 My Posts
                             </Button>
@@ -31,7 +31,7 @@ export default function AppLayout({ children, title }: Props) {
                         <Button
                             size="sm"
                             variant="ghost"
-                            className="gap-1.5 text-xs text-zinc-500 hover:text-red-600"
+                            className="gap-1.5 text-xs text-black hover:text-red-600"
                             onClick={() => router.post('/logout')}
                         >
                             <LogOut size={13} />

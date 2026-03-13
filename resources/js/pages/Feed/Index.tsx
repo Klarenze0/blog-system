@@ -29,8 +29,8 @@ export default function FeedIndex({ posts }: Props) {
             ) : (
                 <div className="space-y-6">
                     {posts.map(post => (
-                        <Link key={post.id} href={`/posts/${post.id}`}>
-                            <article className="bg-white border border-zinc-200 rounded-xl overflow-hidden hover:border-zinc-400 hover:shadow-sm transition-all cursor-pointer">
+                        <Link key={post.id} href={`/post/${post.id}`}>
+                            <article className="bg-white border border-zinc-200 rounded-xl overflow-hidden hover:border-zinc-400 hover:shadow-sm transition-all cursor-pointer my-5">
                                 {/* Image */}
                                 {post.image_path && (
                                     <img

@@ -23,7 +23,7 @@ class FeedController extends Controller
 
     // isang post lang makikita
     public function show(Post $post): Response {
-        return Inertia::render('/Feed/show', [
+        return Inertia::render('Feed/Show', [
             'post' => $this->postService->getPost($post),
         ]);
     }

@@ -12,8 +12,19 @@ use Inertia\Response;
 class UserController extends Controller
 {
     //pakita lahat ng user
-    public function index(): Response {
-        $users = User::withCount('posts');
+    public function index(): Response
+    {
+        $users = User::withCount('posts')
+            ->latest()
+            ->get()
+            ->map(fn($user) => [
+                'id' => $user->id,
+                'name' => $user->name,
+                'email' => $user->email,
+                'role' => $user->role->value,
+                'posts_count' => $user->posts_count,
+                'created_at' => $user->created_at,
+            ]);
 
         return Inertia::render('Admin/Users/Index', [
             'users' => $users,
@@ -22,12 +33,13 @@ class UserController extends Controller
 
     // delete users kasama mga posts
 
-    public function destroy(User $user): RedirectResponse {
+    public function destroy(User $user): RedirectResponse
+    {
         if ($user->id === auth()->id()) {
             return redirect()
                 ->back()
                 ->with('error', 'You cannot delete your own account.');
-        }    
+        }
 
         $user->delete();
 

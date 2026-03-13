@@ -54,7 +54,7 @@ export default function PostCreate() {
                             value={data.title}
                             onChange={e => setData('title', e.target.value)}
                             placeholder="Enter post title..."
-                            className="border-zinc-200"
+                            className="border-zinc-200 text-black"
                         />
                         {errors.title && (
                             <p className="text-xs text-red-500">{errors.title}</p>
@@ -72,7 +72,7 @@ export default function PostCreate() {
                             onChange={e => setData('content', e.target.value)}
                             placeholder="Write your post content..."
                             rows={8}
-                            className="border-zinc-200 resize-none"
+                            className="border-zinc-200 resize-none  text-black"
                         />
                         {errors.content && (
                             <p className="text-xs text-red-500">{errors.content}</p>
